@@ -11,7 +11,7 @@ This repository is a starter setup for new linux environment.
 - Move the repository to /home, the final path must be /home/fresh-linux-setup.
 - Run the script as root.
     ```
-    bash setup.sh <Existing_User>
+    sudo bash setup.sh <Existing_User>
     ```
 
 

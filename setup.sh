@@ -28,7 +28,6 @@ usr=$1
 # Generate locale language
 sudo locale-gen
 
-# Web Server Droplet
 #initial update with curl installation
 sudo apt update && sudo apt -y upgrade && sudo apt -y install apt-transport-https ca-certificates curl
 #Add repositories
@@ -84,7 +83,7 @@ echo "Composer setup..."
 echo "=========================================="
 
 cd ~ && curl -sS https://getcomposer.org/installer | php
-mv ~/composer.phar /usr/local/bin/composer
+sudo mv ~/composer.phar /usr/local/bin/composer
 sudo chown root:users /usr/local/bin/composer
 
 echo "=========================================="
@@ -160,7 +159,7 @@ echo 'ZSH profile finished!'
 echo "=========================================="
 
 
-su www -c "zsh /home/fresh-linux-setup/user.sh $usr"
+su $usr -c "zsh /home/fresh-linux-setup/user.sh $usr"
 
 usermod --shell /bin/zsh $usr
 
@@ -176,10 +175,10 @@ cat<< MANUAL_TASKS
             Remaning Manual Tasks....
 ==============================================
 
-- Change root password
+- Change root password, if you want to:
 sudo passwd root
 
-- Configure p10k
+- Configure p10k style:
 p10k configure
 
 MANUAL_TASKS
